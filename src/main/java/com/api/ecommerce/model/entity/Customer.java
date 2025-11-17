@@ -8,6 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -43,4 +46,9 @@ public class Customer {
     @Column(nullable = false, length = 200)
     @Size(max = 200, message = "Address must be at most 200 characters")
     private String address;
+
+
+    // One-to-Many Relationship with Order
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();
 }

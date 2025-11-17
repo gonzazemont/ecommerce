@@ -7,6 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,4 +39,8 @@ public class Supplier {
     @Column(nullable = false, length = 50)
     @Size(max = 50, message = "Country must be at most 50 characters")
     private String country;
+
+    // One-to-Many Relationship with Product
+    @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Product> products = new ArrayList<>();
 }
