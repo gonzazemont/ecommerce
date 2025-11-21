@@ -2,6 +2,7 @@ package com.api.ecommerce.mapper;
 
 import com.api.ecommerce.dto.product.ProductCreateDTO;
 import com.api.ecommerce.dto.product.ProductResponseDTO;
+import com.api.ecommerce.dto.product.ProductUpdateDTO;
 import com.api.ecommerce.model.entity.Category;
 import com.api.ecommerce.model.entity.Product;
 import com.api.ecommerce.model.entity.Supplier;
@@ -23,7 +24,7 @@ public class ProductMapper {
     }
 
     // dto to entity (update)
-    public void updateEntityFromDTO (Product product, ProductCreateDTO dto, Category category, Supplier supplier) {
+    public void updateEntityFromDTO (Product product, ProductUpdateDTO dto, Category category, Supplier supplier) {
         product.setName(dto.getName());
         product.setDescription(dto.getDescription());
         product.setPrice(dto.getPrice());
