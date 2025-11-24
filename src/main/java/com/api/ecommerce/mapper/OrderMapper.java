@@ -35,6 +35,7 @@ public class OrderMapper {
 
     private OrderItemResponseDTO toOrderItemResponseDTO(OrderItem orderItem) {
         OrderItemResponseDTO dto = new OrderItemResponseDTO();
+        dto.setId(orderItem.getId());
         dto.setProductId(orderItem.getProduct().getId());
         dto.setProductName(orderItem.getProduct().getName());
         dto.setQuantity(orderItem.getQuantity());

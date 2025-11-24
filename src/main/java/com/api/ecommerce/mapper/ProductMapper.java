@@ -12,14 +12,14 @@ import org.springframework.stereotype.Component;
 public class ProductMapper {
 
     // dto to entity (create)
-    public Product toEntity(ProductCreateDTO dto, Category category, Supplier supplier) {
+    public Product toEntity(ProductCreateDTO dto, Category category, Supplier supplie) {
         Product product = new Product();
         product.setName(dto.getName());
         product.setDescription(dto.getDescription());
         product.setPrice(dto.getPrice());
         product.setStock(dto.getStock());
         product.setCategory(category);
-        product.setSupplier(supplier);
+        product.setSupplier(supplie);
         return product;
     }
 
@@ -42,7 +42,9 @@ public class ProductMapper {
         dto.setPrice(product.getPrice());
         dto.setStock(product.getStock());
         dto.setCategoryId(product.getCategory().getId());
+        dto.setCategoryName(product.getCategory().getName());
         dto.setSupplierId(product.getSupplier().getId());
+        dto.setSupplierName(product.getSupplier().getName());
         return dto;
     }
 }
